@@ -14,7 +14,7 @@ INSTALL_DIR="$BUILD_DIR/.heroku/vendor/buildout"  # -> after buildout is
 # finished, copy results to this dir so they get compressed into a Heroku slug
 UI_URL=https://launchpad.net/plone/4.3/4.3.4/+download/Plone-4.3.4-r1-UnifiedInstaller.tgz
 UI_TARBALL=Plone-4.3.4-r1-UnifiedInstaller.tgz
-UI_DIR=Plone-4.3.4-r1-UnifiedInstaller
+UI_DIR=Plone-4.3.4-UnifiedInstaller
 
 
 # make sure dirs exist
