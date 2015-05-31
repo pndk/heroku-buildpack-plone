@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-echo "-----> Read INSTANCE_NAME from env vars, or use default"
-if [ -f $ENV_DIR/INSTANCE_NAME ]; then
-    export "INSTANCE=$(cat $ENV_DIR/INSTANCE_NAME)"
-    echo "Use instance name: ${INSTANCE}" | indent
-else
-
 cat << EOF
 ---
 addons:
   - heroku-postgresql:dev
 default_process_types:
-  web: python configure_zopeconf.py; bin/$INSTANCE console
+  web: python configure_zopeconf.py; bin/plone console
 EOF
