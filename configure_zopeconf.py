@@ -4,8 +4,8 @@ go through the zope.conf and searc/replace values. Bad Plone!"""
 import os
 
 DIR = '/app/'
-zope_conf_orig = DIR + 'parts/instance/etc/zope.conf'
-zope_conf_new = DIR + 'parts/instance/etc/zope.conf.new'
+zope_conf_orig = DIR + 'parts/plone/etc/zope.conf'
+zope_conf_new = DIR + 'parts/plone/etc/zope.conf.new'
 
 with open(zope_conf_new, 'wt') as fout:
     with open(zope_conf_orig, 'rt') as fin:
