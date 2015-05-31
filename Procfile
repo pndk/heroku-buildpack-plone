@@ -1,1 +1,1 @@
-work: python configure_zopeconf.py; bin/instance run test.py
+work: python configure_zopeconf.py; bin/plone run test.py
