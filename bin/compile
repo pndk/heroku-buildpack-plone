@@ -63,6 +63,15 @@ else
     echo "Use default buildout verbosity" | indent
 fi
 
+echo "-----> Read INSTANCE_NAME from env vars, or use default"
+if [ -f $ENV_DIR/INSTANCE_NAME ]; then
+    export "INSTANCE=$(cat $ENV_DIR/INSTANCE_NAME)"
+    echo "Use instance name: ${INSTANCE}" | indent
+else
+    export "INSTANCE=instance"
+    echo "Use default instance name" | indent
+fi
+
 echo "-----> Read BOOTSTRAP_PY_URL from env vars, or use default"
 if [ -f $ENV_DIR/BOOTSTRAP_PY_URL ]; then
     export "BOOTSTRAP_PY_URL=$(cat $ENV_DIR/BOOTSTRAP_PY_URL)"
@@ -80,8 +89,8 @@ echo "-----> Run bin/buildout -c ${BUILDOUT_CFG} ${BUILDOUT_VERBOSITY}"
 bin/buildout -c $BUILDOUT_CFG $BUILDOUT_VERBOSITY
 
 echo "-----> Fix paths in zope.conf"
-sed "s|${BUILD_DIR}|/app|" parts/instance/etc/zope.conf > zope.conf.new
-mv zope.conf.new parts/instance/etc/zope.conf
+sed "s|${BUILD_DIR}|/app|" parts/$INSTANCE/etc/zope.conf > zope.conf.new
+mv zope.conf.new parts/$INSTANCE/etc/zope.conf
 
 echo "-----> Copy results to cache"
 cp -r $BUILD_DIR/bin $CACHE_DIR
