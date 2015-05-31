@@ -68,7 +68,7 @@ if [ -f $ENV_DIR/INSTANCE_NAME ]; then
     export "INSTANCE=$(cat $ENV_DIR/INSTANCE_NAME)"
     echo "Use instance name: ${INSTANCE}" | indent
 else
-    export "INSTANCE=instance"
+    export "INSTANCE=plone"
     echo "Use default instance name" | indent
 fi
 
